@@ -51,27 +51,51 @@ button{
   line-height:1.8;
 }
 
-/* 📸 gallery */
-.gallery{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  margin:30px 0;
-  flex-wrap:wrap;
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Slightly smaller gap for mobile */
+  margin: 30px auto;
+  flex-wrap: wrap;
+  max-width: 90%; /* Prevents stretching on ultra-wide screens */
 }
 
-.photo{
-  width:120px;
-  height:140px;
-  background:white;
-  color:black;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transform:rotate(-5deg);
-  box-shadow:0 10px 20px rgba(0,0,0,.3);
+.photo {
+  /* Uses viewport width (vw) so it automatically scales down on small phones */
+  width: clamp(90px, 25vw, 120px); 
+  height: clamp(110px, 30vw, 140px);
+  background: white;
+  color: black;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-5deg);
+  box-shadow: 0 8px 16px rgba(0,0,0,.2); /* Softer shadow for mobile */
+  
+  /* Enables hardware acceleration for buttery-smooth movements */
+  will-change: transform; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  
+  /* Prevenst mobile browser tap delays and accidental text selection */
+  touch-action: manipulation;
+  user-select: none;
 }
+
+/* Smooth hover and tap effect */
+.photo:hover, .photo:active {
+  transform: rotate(0deg) scale(1.05); /* Straightens and grows slightly when tapped */
+  box-shadow: 0 12px 24px rgba(0,0,0,.35);
+}
+
+/* Inner image styling to ensure it fits perfectly inside the frame */
+.photo img {
+  width: 90%; /* Leaves a nice white Polaroid border */
+  height: 80%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
 
 /* 🎉 Final */
 #finalMessage{
