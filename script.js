@@ -1,5 +1,5 @@
 // ✨ typing intro
-const introText = "Hey beautiful… I made something just for you 💖";
+const introText = "Hey beautiful (Victoria)… I made something just for you 💖";
 let i = 0;
 const introEl = document.getElementById("introText");
 
@@ -23,7 +23,7 @@ document.getElementById("openBtn").onclick = () => {
 const message = `Today the world celebrates the day you were born.
 But for me… it’s the day my favorite person came into existence.
 
-You make my life brighter,
+Aberu Aitwaan!! you make my life brighter,
 my days happier,
 and my future more exciting.
 
